@@ -1,127 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:foregroundGravity="center_vertical|center"
-    tools:context=".Calculadora">
-
-    <Button
-        android:id="@+id/btn_resta"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="7dp"
-        android:text="-"
-        app:layout_constraintBottom_toTopOf="@+id/btn_mutiplicacion"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_suma" />
-
-    <Button
-        android:id="@+id/btn_suma"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="9dp"
-        android:gravity="center"
-        android:text="+"
-        app:layout_constraintBottom_toTopOf="@+id/btn_resta"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Resultado" />
-
-    <Button
-        android:id="@+id/btn_division"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="7dp"
-        android:text="/"
-        app:layout_constraintBottom_toTopOf="@+id/btn_borrar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_mutiplicacion" />
-
-    <Button
-        android:id="@+id/btn_borrar"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="23dp"
-        android:layout_marginEnd="23dp"
-        android:layout_marginBottom="96dp"
-        android:text="C"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_division" />
-
-    <Button
-        android:id="@+id/btn_mutiplicacion"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="7dp"
-        android:text="*"
-        app:layout_constraintBottom_toTopOf="@+id/btn_division"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_resta" />
+    android:orientation="vertical"
+    android:background="#000000"
+    android:padding="10dp">
 
     <TextView
-        android:id="@+id/Resultado"
-        android:layout_width="302dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="27dp"
-        android:layout_marginBottom="34dp"
-        android:gravity="center|center_horizontal|center_vertical"
-        app:layout_constraintBottom_toTopOf="@+id/btn_suma"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Numero_2" />
+        android:id="@+id/tvOperation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="30sp"
+        android:textColor="#888888"
+        android:gravity="end"
+        android:padding="20dp"/>
 
     <TextView
-        android:id="@+id/Titulo_calculadora"
-        android:layout_width="203dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="29dp"
-        android:layout_marginBottom="36dp"
-        android:gravity="center"
-        android:text="CALCULADORA"
-        app:layout_constraintBottom_toTopOf="@+id/Numero_1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:id="@+id/tvResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="50sp"
+        android:textColor="#FFFFFF"
+        android:gravity="end"
+        android:padding="20dp"/>
 
-    <EditText
-        android:id="@+id/Numero_1"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="26dp"
-        android:ems="10"
-        android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/Numero_2"
-        app:layout_constraintEnd_toEndOf="@+id/Numero_2"
-        app:layout_constraintStart_toStartOf="@+id/Numero_2"
-        app:layout_constraintTop_toBottomOf="@+id/Titulo_calculadora" />
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:columnCount="4"
+        android:rowCount="5">
 
-    <EditText
-        android:id="@+id/Numero_2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginBottom="30dp"
-        android:ems="10"
-        android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/Resultado"
-        app:layout_constraintEnd_toEndOf="@+id/Resultado"
-        app:layout_constraintStart_toStartOf="@+id/btn_suma"
-        app:layout_constraintTop_toBottomOf="@+id/Numero_1" />
+        <Button android:id="@+id/btnClear" android:text="AC" />
+        <Button android:id="@+id/btnToggleSign" android:text="+/-" />
+        <Button android:id="@+id/btnPercentage" android:text="%" />
+        <Button android:id="@+id/btnDivide" android:text="/" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Button android:id="@+id/btn7" android:text="7" />
+        <Button android:id="@+id/btn8" android:text="8" />
+        <Button android:id="@+id/btn9" android:text="9" />
+        <Button android:id="@+id/btnMultiply" android:text="X" />
+
+        <Button android:id="@+id/btn4" android:text="4" />
+        <Button android:id="@+id/btn5" android:text="5" />
+        <Button android:id="@+id/btn6" android:text="6" />
+        <Button android:id="@+id/btnSubtract" android:text="-" />
+
+        <Button android:id="@+id/btn1" android:text="1" />
+        <Button android:id="@+id/btn2" android:text="2" />
+        <Button android:id="@+id/btn3" android:text="3" />
+        <Button android:id="@+id/btnAdd" android:text="+" />
+
+        <Button android:id="@+id/btn0"
+            android:text="0"
+            android:layout_columnSpan="2"
+            android:layout_gravity="fill"/>
+        <Button android:id="@+id/btnDecimal" android:text="." />
+        <Button android:id="@+id/btnEquals" android:text="=" />
+
+    </GridLayout>
+
+</LinearLayout>

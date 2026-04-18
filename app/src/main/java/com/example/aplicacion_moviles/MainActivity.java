@@ -1,46 +1,38 @@
 package com.example.aplicacion_moviles;
 
-import android.os.Bundle;
-import android.widget.Button;
 import android.content.Intent;
-import androidx.activity.EdgeToEdge;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
-
-    Button boton_calculadora, boton_agenda;
+    private Button btnAdmin, btnUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        boton_agenda = findViewById(R.id.boton_agenda);
-        boton_calculadora = findViewById(R.id.boton_calculadora);
+        btnAdmin = findViewById(R.id.btnAdmin);
+        btnUser = findViewById(R.id.btnUser);
 
-        boton_calculadora.setOnClickListener(view -> {
-            Intent intent = new Intent(MainActivity.this, Calculadora.class);
-            startActivity(intent);
+        btnAdmin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, AdminActivity.class);
+                startActivity(intent);
+            }
         });
 
-        boton_agenda.setOnClickListener(view -> {
-            Intent intent = new Intent(MainActivity.this, Agenda.class);
-            startActivity(intent);
-        });
-
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+        btnUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
         });
     }
 }
-
-
-
 
 

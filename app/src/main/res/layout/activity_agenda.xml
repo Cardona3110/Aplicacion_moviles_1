@@ -1,100 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Agenda">
-
-    <EditText
-        android:id="@+id/correo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="7dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="Correo"
-        app:layout_constraintStart_toStartOf="@+id/num_celular"
-        app:layout_constraintTop_toBottomOf="@+id/num_celular" />
-
-    <EditText
-        android:id="@+id/nombre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="Nombre"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/agenda" />
-
-    <EditText
-        android:id="@+id/apellido"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="Apellido"
-        app:layout_constraintStart_toStartOf="@+id/nombre"
-        app:layout_constraintTop_toBottomOf="@+id/nombre" />
-
-    <EditText
-        android:id="@+id/num_celular"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="Numero de celular"
-        app:layout_constraintStart_toStartOf="@+id/apellido"
-        app:layout_constraintTop_toBottomOf="@+id/apellido" />
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="#FFFFFF">
 
     <TextView
-        android:id="@+id/agenda"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:text="Agenda"
-        android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="Agenda Personal"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="30dp"
+        android:textColor="#000000"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Datos Personales:"
+        android:textSize="16sp"
+        android:layout_marginBottom="10dp"
+        android:textColor="#000000"/>
 
     <EditText
-        android:id="@+id/residencia"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="9dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="Lugar de residencia"
-        app:layout_constraintStart_toStartOf="@+id/correo"
-        app:layout_constraintTop_toBottomOf="@+id/correo" />
+        android:id="@+id/etPersonalData"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:gravity="top"
+        android:hint="Nombre, teléfono, dirección, etc."
+        android:padding="15dp"
+        android:background="@android:drawable/editbox_background"
+        android:layout_marginBottom="20dp"
+        android:textColor="#000000"/>
 
-    <Button
-        android:id="@+id/btn_guardar"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="61dp"
-        android:layout_marginTop="233dp"
-        android:layout_marginBottom="233dp"
-        android:text="Guardar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/num_celular" />
+        android:text="Gustos y Preferencias:"
+        android:textSize="16sp"
+        android:layout_marginBottom="10dp"
+        android:textColor="#000000"/>
 
-    <Button
-        android:id="@+id/btn_consultar"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/etPreferences"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:gravity="top"
+        android:hint="Hobbies, intereses, preferencias, etc."
+        android:padding="15dp"
+        android:background="@android:drawable/editbox_background"
+        android:layout_marginBottom="20dp"
+        android:textColor="#000000"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="238dp"
-        android:layout_marginEnd="39dp"
-        android:layout_marginBottom="238dp"
-        android:text="Consultar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/apellido" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:text="Guardar"
+            android:layout_marginEnd="10dp"/>
+
+        <Button
+            android:id="@+id/btnLoad"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:text="Cargar"/>
+
+    </LinearLayout>
+
+</LinearLayout>

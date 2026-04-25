@@ -12,32 +12,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Aplicacion_moviles">
         <activity
-            android:name=".Agenda"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".Calculadora"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".AdminActivity"/>
+        <activity android:name=".LoginActivity"/>
+        <activity android:name=".UserMenuActivity"/>
+        <activity android:name=".AgendaActivity"/>
+        <activity android:name=".CalculatorActivity"/>
     </application>
 
 </manifest>

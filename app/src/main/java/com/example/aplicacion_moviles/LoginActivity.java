@@ -3,15 +3,16 @@ package com.example.aplicacion_moviles;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText etEmail, etPassword;
     private Button btnLogin;
+    private ImageButton btnBack;
     private AppDatabase database;
 
     @Override
@@ -21,16 +22,14 @@ public class LoginActivity extends AppCompatActivity {
 
         database = AppDatabase.getInstance(this);
 
+        btnBack = findViewById(R.id.btnBack);
+        btnBack.setOnClickListener(v -> finish());
+
         etEmail = findViewById(R.id.etLoginEmail);
         etPassword = findViewById(R.id.etLoginPassword);
         btnLogin = findViewById(R.id.btnLogin);
 
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                login();
-            }
-        });
+        btnLogin.setOnClickListener(v -> login());
     }
 
     private void login() {
@@ -42,24 +41,19 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
-        AsyncTask.execute(new Runnable() {
-            @Override
-            public void run() {
-                User user = database.userDao().login(email, password);
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (user != null) {
-                            Intent intent = new Intent(LoginActivity.this, UserMenuActivity.class);
-                            intent.putExtra("user_id", user.getId());
-                            startActivity(intent);
-                            finish();
-                        } else {
-                            Toast.makeText(LoginActivity.this, "Credenciales incorrectas", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-            }
+        AsyncTask.execute(() -> {
+            User user = database.userDao().login(email, password);
+            runOnUiThread(() -> {
+                if (user != null) {
+                    Intent intent = new Intent(LoginActivity.this, UserMenuActivity.class);
+                    intent.putExtra("user_id", user.getId());
+                    startActivity(intent);
+                    finish();
+                } else {
+                    Toast.makeText(LoginActivity.this,
+                            "Credenciales incorrectas", Toast.LENGTH_SHORT).show();
+                }
+            });
         });
     }
 }

@@ -3,76 +3,222 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="20dp"
-    android:background="#FFFFFF">
+    android:background="#F5F5F5">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Agenda Personal"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="30dp"
-        android:textColor="#000000"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Datos Personales:"
-        android:textSize="16sp"
-        android:layout_marginBottom="10dp"
-        android:textColor="#000000"/>
-
-    <EditText
-        android:id="@+id/etPersonalData"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:gravity="top"
-        android:hint="Nombre, teléfono, dirección, etc."
-        android:padding="15dp"
-        android:background="@android:drawable/editbox_background"
-        android:layout_marginBottom="20dp"
-        android:textColor="#000000"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Gustos y Preferencias:"
-        android:textSize="16sp"
-        android:layout_marginBottom="10dp"
-        android:textColor="#000000"/>
-
-    <EditText
-        android:id="@+id/etPreferences"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:gravity="top"
-        android:hint="Hobbies, intereses, preferencias, etc."
-        android:padding="15dp"
-        android:background="@android:drawable/editbox_background"
-        android:layout_marginBottom="20dp"
-        android:textColor="#000000"/>
-
+    <!-- Toolbar con botón atrás -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="#4CAF50"
+        android:paddingStart="8dp">
 
-        <Button
-            android:id="@+id/btnSave"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:text="Guardar"
-            android:layout_marginEnd="10dp"/>
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@android:drawable/ic_menu_revert"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:tint="#FFFFFF"
+            android:contentDescription="Volver"/>
 
-        <Button
-            android:id="@+id/btnLoad"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:text="Cargar"/>
-
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Agenda Personal"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:layout_marginStart="8dp"/>
     </LinearLayout>
+
+    <!-- Contenido scrollable -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- SECCIÓN: Datos Personales -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="👤 DATOS PERSONALES"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#4CAF50"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="12dp"/>
+
+            <EditText
+                android:id="@+id/etNombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nombre completo"
+                android:inputType="textPersonName|textCapWords"
+                android:padding="14dp"
+                android:layout_marginBottom="10dp"
+                android:background="#FFFFFF"
+                android:textColor="#212121"
+                android:textSize="16sp"/>
+
+            <EditText
+                android:id="@+id/etTelefono"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Teléfono"
+                android:inputType="phone"
+                android:padding="14dp"
+                android:layout_marginBottom="10dp"
+                android:background="#FFFFFF"
+                android:textColor="#212121"
+                android:textSize="16sp"/>
+
+            <EditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Correo electrónico"
+                android:inputType="textEmailAddress"
+                android:padding="14dp"
+                android:layout_marginBottom="10dp"
+                android:background="#FFFFFF"
+                android:textColor="#212121"
+                android:textSize="16sp"/>
+
+            <EditText
+                android:id="@+id/etDireccion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Dirección"
+                android:inputType="textPostalAddress|textCapSentences"
+                android:padding="14dp"
+                android:layout_marginBottom="10dp"
+                android:background="#FFFFFF"
+                android:textColor="#212121"
+                android:textSize="16sp"/>
+
+            <EditText
+                android:id="@+id/etFechaNacimiento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Fecha de nacimiento (dd/mm/aaaa)"
+                android:inputType="datetime"
+                android:padding="14dp"
+                android:layout_marginBottom="16dp"
+                android:background="#FFFFFF"
+                android:textColor="#212121"
+                android:textSize="16sp"/>
+
+            <!-- Divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#E0E0E0"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- SECCIÓN: Gustos y Preferencias -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🎯 GUSTOS Y PREFERENCIAS"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#4CAF50"
+                android:layout_marginBottom="12dp"/>
+
+            <EditText
+                android:id="@+id/etHobbies"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Hobbies e intereses"
+                android:inputType="textCapSentences"
+                android:padding="14dp"
+                android:layout_marginBottom="10dp"
+                android:background="#FFFFFF"
+                android:textColor="#212121"
+                android:textSize="16sp"/>
+
+            <EditText
+                android:id="@+id/etComidaFavorita"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Comida favorita"
+                android:inputType="textCapSentences"
+                android:padding="14dp"
+                android:layout_marginBottom="10dp"
+                android:background="#FFFFFF"
+                android:textColor="#212121"
+                android:textSize="16sp"/>
+
+            <EditText
+                android:id="@+id/etDeporte"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Deporte favorito"
+                android:inputType="textCapSentences"
+                android:padding="14dp"
+                android:layout_marginBottom="10dp"
+                android:background="#FFFFFF"
+                android:textColor="#212121"
+                android:textSize="16sp"/>
+
+            <EditText
+                android:id="@+id/etMusica"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Música favorita"
+                android:inputType="textCapSentences"
+                android:padding="14dp"
+                android:layout_marginBottom="10dp"
+                android:background="#FFFFFF"
+                android:textColor="#212121"
+                android:textSize="16sp"/>
+
+            <EditText
+                android:id="@+id/etNotas"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:hint="Notas adicionales..."
+                android:inputType="textMultiLine|textCapSentences"
+                android:gravity="top"
+                android:padding="14dp"
+                android:layout_marginBottom="16dp"
+                android:background="#FFFFFF"
+                android:textColor="#212121"
+                android:textSize="16sp"/>
+
+            <!-- Botón Guardar -->
+            <Button
+                android:id="@+id/btnSave"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:text="💾 GUARDAR"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:backgroundTint="#4CAF50"
+                android:textColor="#FFFFFF"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- Botón Cargar (oculto, la carga es automática) -->
+            <Button
+                android:id="@+id/btnLoad"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:text="🔄 RECARGAR DATOS"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:backgroundTint="#2196F3"
+                android:textColor="#FFFFFF"
+                android:layout_marginBottom="16dp"/>
+
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

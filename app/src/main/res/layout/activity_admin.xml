@@ -33,45 +33,113 @@
             android:layout_marginStart="8dp"/>
     </LinearLayout>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="24dp"
-        android:gravity="center">
+        android:layout_height="match_parent">
 
-        <EditText
-            android:id="@+id/etEmail"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Correo electrónico"
-            android:inputType="textEmailAddress"
-            android:padding="15dp"
-            android:layout_marginBottom="15dp"
-            android:background="#FFFFFF"
-            android:textColor="#212121"/>
+            android:orientation="vertical"
+            android:padding="24dp">
 
-        <EditText
-            android:id="@+id/etPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Contraseña"
-            android:inputType="textPassword"
-            android:padding="15dp"
-            android:layout_marginBottom="30dp"
-            android:background="#FFFFFF"
-            android:textColor="#212121"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nuevo Usuario"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="10dp"/>
 
-        <Button
-            android:id="@+id/btnCreateUser"
-            android:layout_width="match_parent"
-            android:layout_height="54dp"
-            android:text="Crear Usuario"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:backgroundTint="#FF5722"
-            android:textColor="#FFFFFF"/>
+            <EditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Correo electrónico"
+                android:inputType="textEmailAddress"
+                android:padding="15dp"
+                android:layout_marginBottom="15dp"
+                android:background="#FFFFFF"
+                android:textColor="#212121"/>
 
-    </LinearLayout>
+            <EditText
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Contraseña"
+                android:inputType="textPassword"
+                android:padding="15dp"
+                android:layout_marginBottom="15dp"
+                android:background="#FFFFFF"
+                android:textColor="#212121"/>
+
+            <Button
+                android:id="@+id/btnCreateUser"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:text="Crear Usuario"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:backgroundTint="#FF5722"
+                android:textColor="#FFFFFF"
+                android:layout_marginBottom="30dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Usuarios Registrados"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="10dp"/>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TableLayout
+                    android:id="@+id/tableUsers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFFF"
+                    android:stretchColumns="*">
+
+                    <TableRow
+                        android:background="#E0E0E0"
+                        android:padding="8dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="ID"
+                            android:textStyle="bold"
+                            android:padding="5dp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Email"
+                            android:textStyle="bold"
+                            android:padding="5dp"
+                            android:layout_marginStart="10dp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Password"
+                            android:textStyle="bold"
+                            android:padding="5dp"
+                            android:layout_marginStart="10dp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Nombre"
+                            android:textStyle="bold"
+                            android:padding="5dp"
+                            android:layout_marginStart="10dp"/>
+                    </TableRow>
+
+                    <!-- Filas dinámicas aquí -->
+                </TableLayout>
+            </HorizontalScrollView>
+
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

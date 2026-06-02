@@ -50,171 +50,68 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="👤 DATOS PERSONALES"
-                android:textSize="13sp"
+                android:textSize="14sp"
                 android:textStyle="bold"
                 android:textColor="#4CAF50"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="12dp"/>
 
-            <EditText
-                android:id="@+id/etNombre"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Nombre completo"
-                android:inputType="textPersonName|textCapWords"
-                android:padding="14dp"
-                android:layout_marginBottom="10dp"
-                android:background="#FFFFFF"
-                android:textColor="#212121"
-                android:textSize="16sp"/>
+            <EditText android:id="@+id/etNombre" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Nombre completo" android:padding="12dp" android:background="#FFFFFF" android:layout_marginBottom="8dp"/>
+            <EditText android:id="@+id/etTelefono" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Teléfono" android:inputType="phone" android:padding="12dp" android:background="#FFFFFF" android:layout_marginBottom="8dp"/>
+            <EditText android:id="@+id/etDireccion" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Dirección" android:padding="12dp" android:background="#FFFFFF" android:layout_marginBottom="8dp"/>
+            <EditText android:id="@+id/etFechaNacimiento" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Fecha de nacimiento" android:padding="12dp" android:background="#FFFFFF" android:layout_marginBottom="8dp"/>
+            <EditText android:id="@+id/etGenero" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Género" android:padding="12dp" android:background="#FFFFFF" android:layout_marginBottom="8dp"/>
+            <EditText android:id="@+id/etOcupacion" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Ocupación" android:padding="12dp" android:background="#FFFFFF" android:layout_marginBottom="16dp"/>
 
-            <EditText
-                android:id="@+id/etTelefono"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Teléfono"
-                android:inputType="phone"
-                android:padding="14dp"
-                android:layout_marginBottom="10dp"
-                android:background="#FFFFFF"
-                android:textColor="#212121"
-                android:textSize="16sp"/>
-
-            <EditText
-                android:id="@+id/etEmail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Correo electrónico"
-                android:inputType="textEmailAddress"
-                android:padding="14dp"
-                android:layout_marginBottom="10dp"
-                android:background="#FFFFFF"
-                android:textColor="#212121"
-                android:textSize="16sp"/>
-
-            <EditText
-                android:id="@+id/etDireccion"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Dirección"
-                android:inputType="textPostalAddress|textCapSentences"
-                android:padding="14dp"
-                android:layout_marginBottom="10dp"
-                android:background="#FFFFFF"
-                android:textColor="#212121"
-                android:textSize="16sp"/>
-
-            <EditText
-                android:id="@+id/etFechaNacimiento"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Fecha de nacimiento (dd/mm/aaaa)"
-                android:inputType="datetime"
-                android:padding="14dp"
-                android:layout_marginBottom="16dp"
-                android:background="#FFFFFF"
-                android:textColor="#212121"
-                android:textSize="16sp"/>
-
-            <!-- Divider -->
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#E0E0E0"
-                android:layout_marginBottom="16dp"/>
-
-            <!-- SECCIÓN: Gustos y Preferencias -->
+            <!-- SECCIÓN: Gustos (10 items) -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="🎯 GUSTOS Y PREFERENCIAS"
-                android:textSize="13sp"
+                android:text="⭐ MIS GUSTOS (10 items)"
+                android:textSize="14sp"
                 android:textStyle="bold"
                 android:textColor="#4CAF50"
                 android:layout_marginBottom="12dp"/>
+            <EditText android:id="@+id/etGusto1" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Gusto 1" android:padding="10dp" android:background="#FFFFFF" android:layout_marginBottom="5dp"/>
+            <EditText android:id="@+id/etGusto2" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Gusto 2" android:padding="10dp" android:background="#FFFFFF" android:layout_marginBottom="5dp"/>
+            <EditText android:id="@+id/etGusto3" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Gusto 3" android:padding="10dp" android:background="#FFFFFF" android:layout_marginBottom="5dp"/>
+            <EditText android:id="@+id/etGusto4" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Gusto 4" android:padding="10dp" android:background="#FFFFFF" android:layout_marginBottom="5dp"/>
+            <EditText android:id="@+id/etGusto5" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Gusto 5" android:padding="10dp" android:background="#FFFFFF" android:layout_marginBottom="5dp"/>
+            <EditText android:id="@+id/etGusto6" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Gusto 6" android:padding="10dp" android:background="#FFFFFF" android:layout_marginBottom="5dp"/>
+            <EditText android:id="@+id/etGusto7" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Gusto 7" android:padding="10dp" android:background="#FFFFFF" android:layout_marginBottom="5dp"/>
+            <EditText android:id="@+id/etGusto8" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Gusto 8" android:padding="10dp" android:background="#FFFFFF" android:layout_marginBottom="5dp"/>
+            <EditText android:id="@+id/etGusto9" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Gusto 9" android:padding="10dp" android:background="#FFFFFF" android:layout_marginBottom="5dp"/>
+            <EditText android:id="@+id/etGusto10" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Gusto 10" android:padding="10dp" android:background="#FFFFFF" android:layout_marginBottom="16dp"/>
 
-            <EditText
-                android:id="@+id/etHobbies"
-                android:layout_width="match_parent"
+            <!-- SECCIÓN: Preferencias (10 items) -->
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Hobbies e intereses"
-                android:inputType="textCapSentences"
-                android:padding="14dp"
-                android:layout_marginBottom="10dp"
-                android:background="#FFFFFF"
-                android:textColor="#212121"
-                android:textSize="16sp"/>
-
-            <EditText
-                android:id="@+id/etComidaFavorita"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Comida favorita"
-                android:inputType="textCapSentences"
-                android:padding="14dp"
-                android:layout_marginBottom="10dp"
-                android:background="#FFFFFF"
-                android:textColor="#212121"
-                android:textSize="16sp"/>
-
-            <EditText
-                android:id="@+id/etDeporte"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Deporte favorito"
-                android:inputType="textCapSentences"
-                android:padding="14dp"
-                android:layout_marginBottom="10dp"
-                android:background="#FFFFFF"
-                android:textColor="#212121"
-                android:textSize="16sp"/>
-
-            <EditText
-                android:id="@+id/etMusica"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Música favorita"
-                android:inputType="textCapSentences"
-                android:padding="14dp"
-                android:layout_marginBottom="10dp"
-                android:background="#FFFFFF"
-                android:textColor="#212121"
-                android:textSize="16sp"/>
-
-            <EditText
-                android:id="@+id/etNotas"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:hint="Notas adicionales..."
-                android:inputType="textMultiLine|textCapSentences"
-                android:gravity="top"
-                android:padding="14dp"
-                android:layout_marginBottom="16dp"
-                android:background="#FFFFFF"
-                android:textColor="#212121"
-                android:textSize="16sp"/>
+                android:text="⚙️ PREFERENCIAS (10 items)"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="#4CAF50"
+                android:layout_marginBottom="12dp"/>
+            <EditText android:id="@+id/etPref1" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Preferencia 1" android:padding="10dp" android:background="#FFFFFF" android:layout_marginBottom="5dp"/>
+            <EditText android:id="@+id/etPref2" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Preferencia 2" android:padding="10dp" android:background="#FFFFFF" android:layout_marginBottom="5dp"/>
+            <EditText android:id="@+id/etPref3" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Preferencia 3" android:padding="10dp" android:background="#FFFFFF" android:layout_marginBottom="5dp"/>
+            <EditText android:id="@+id/etPref4" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Preferencia 4" android:padding="10dp" android:background="#FFFFFF" android:layout_marginBottom="5dp"/>
+            <EditText android:id="@+id/etPref5" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Preferencia 5" android:padding="10dp" android:background="#FFFFFF" android:layout_marginBottom="5dp"/>
+            <EditText android:id="@+id/etPref6" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Preferencia 6" android:padding="10dp" android:background="#FFFFFF" android:layout_marginBottom="5dp"/>
+            <EditText android:id="@+id/etPref7" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Preferencia 7" android:padding="10dp" android:background="#FFFFFF" android:layout_marginBottom="5dp"/>
+            <EditText android:id="@+id/etPref8" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Preferencia 8" android:padding="10dp" android:background="#FFFFFF" android:layout_marginBottom="5dp"/>
+            <EditText android:id="@+id/etPref9" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Preferencia 9" android:padding="10dp" android:background="#FFFFFF" android:layout_marginBottom="5dp"/>
+            <EditText android:id="@+id/etPref10" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Preferencia 10" android:padding="10dp" android:background="#FFFFFF" android:layout_marginBottom="16dp"/>
 
             <!-- Botón Guardar -->
             <Button
                 android:id="@+id/btnSave"
                 android:layout_width="match_parent"
                 android:layout_height="54dp"
-                android:text="💾 GUARDAR"
+                android:text="💾 GUARDAR CAMBIOS"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:backgroundTint="#4CAF50"
-                android:textColor="#FFFFFF"
-                android:layout_marginBottom="8dp"/>
-
-            <!-- Botón Cargar (oculto, la carga es automática) -->
-            <Button
-                android:id="@+id/btnLoad"
-                android:layout_width="match_parent"
-                android:layout_height="54dp"
-                android:text="🔄 RECARGAR DATOS"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:backgroundTint="#2196F3"
                 android:textColor="#FFFFFF"
                 android:layout_marginBottom="16dp"/>
 

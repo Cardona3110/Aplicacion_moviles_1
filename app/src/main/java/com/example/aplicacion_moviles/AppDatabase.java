@@ -7,15 +7,12 @@ import androidx.room.migration.Migration;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 import android.content.Context;
 
-// IMPORTANTE: Se sube a version=2 porque se añadieron columnas nuevas a la tabla users.
-// La migración agrega las columnas sin borrar datos existentes.
-@Database(entities = {User.class}, version = 2, exportSchema = false)
+@Database(entities = {User.class}, version = 3, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
     private static AppDatabase instance;
 
     public abstract UserDao userDao();
 
-    // Migración de v1 a v2: agrega las nuevas columnas de la agenda
     static final Migration MIGRATION_1_2 = new Migration(1, 2) {
         @Override
         public void migrate(SupportSQLiteDatabase database) {
@@ -31,13 +28,26 @@ public abstract class AppDatabase extends RoomDatabase {
         }
     };
 
+    static final Migration MIGRATION_2_3 = new Migration(2, 3) {
+        @Override
+        public void migrate(SupportSQLiteDatabase database) {
+            database.execSQL("ALTER TABLE users ADD COLUMN genero TEXT");
+            database.execSQL("ALTER TABLE users ADD COLUMN ocupacion TEXT");
+            for (int i = 1; i <= 10; i++) {
+                database.execSQL("ALTER TABLE users ADD COLUMN gusto" + i + " TEXT");
+                database.execSQL("ALTER TABLE users ADD COLUMN pref" + i + " TEXT");
+            }
+        }
+    };
+
     public static synchronized AppDatabase getInstance(Context context) {
         if (instance == null) {
             instance = Room.databaseBuilder(
                             context.getApplicationContext(),
                             AppDatabase.class,
                             "app_database")
-                    .addMigrations(MIGRATION_1_2)   // migración limpia, sin borrar datos
+                    .addMigrations(MIGRATION_1_2, MIGRATION_2_3)
+                    .fallbackToDestructiveMigration() // Opcional: si la migración falla, recrea la base de datos
                     .build();
         }
         return instance;

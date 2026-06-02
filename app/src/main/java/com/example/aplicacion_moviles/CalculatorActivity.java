@@ -5,7 +5,10 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.view.View;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CalculatorActivity extends AppCompatActivity {
     private TextView tvResult, tvOperation;
@@ -15,6 +18,9 @@ public class CalculatorActivity extends AppCompatActivity {
     private double secondNumber = 0;
     private boolean isOperationSelected = false;
     private boolean isResultDisplayed = false;
+    
+    // Lista para guardar el historial de la sesión
+    private List<String> historyList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,9 +34,31 @@ public class CalculatorActivity extends AppCompatActivity {
         tvResult    = findViewById(R.id.tvResult);
         tvOperation = findViewById(R.id.tvOperation);
 
+        Button btnHistory = findViewById(R.id.btnHistory);
+        btnHistory.setOnClickListener(v -> showHistory());
+
         setupNumberButtons();
         setupOperationButtons();
         setupSpecialButtons();
+    }
+
+    private void showHistory() {
+        if (historyList.isEmpty()) {
+            ToastHelper.show(this, "El historial está vacío");
+            return;
+        }
+
+        StringBuilder sb = new StringBuilder();
+        for (String item : historyList) {
+            sb.append(item).append("\n\n");
+        }
+
+        new AlertDialog.Builder(this)
+                .setTitle("Historial de Operaciones")
+                .setMessage(sb.toString())
+                .setPositiveButton("Cerrar", null)
+                .setNeutralButton("Limpiar", (dialog, which) -> historyList.clear())
+                .show();
     }
 
     private void setupNumberButtons() {
@@ -101,8 +129,13 @@ public class CalculatorActivity extends AppCompatActivity {
                         break;
                 }
 
-                tvOperation.setText(firstNumber + " " + operation + " " + secondNumber + " =");
+                String fullOperation = formatResult(firstNumber) + " " + operation + " " + formatResult(secondNumber) + " = " + formatResult(result);
+                tvOperation.setText(fullOperation);
                 tvResult.setText(formatResult(result));
+                
+                // Guardar en el historial
+                historyList.add(fullOperation);
+
                 currentNumber = String.valueOf(result);
                 isOperationSelected = false;
                 isResultDisplayed = true;
@@ -146,5 +179,12 @@ public class CalculatorActivity extends AppCompatActivity {
         } else {
             return String.valueOf(result);
         }
+    }
+}
+
+// Clase auxiliar simple para Toasts o podrías usar Toast directamente
+class ToastHelper {
+    static void show(android.content.Context context, String message) {
+        android.widget.Toast.makeText(context, message, android.widget.Toast.LENGTH_SHORT).show();
     }
 }
